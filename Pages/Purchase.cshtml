@@ -1,0 +1,52 @@
+﻿@page
+@model OnlineBookstoreProject.Pages.PurchaseModel
+@{
+}
+
+<h1>Shopping Cart</h1>
+
+<table class="table table-borddered table-striped" id="purchases">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var i in Model.cart.Items)
+            {
+                <tr>
+                    <td>@i.Book.Title</td>
+                    <td>@i.Quantity</td>
+                    <td>$@i.Book.Price</td>
+                    <td>$<span class="count-me">@(i.Book.Price * i.Quantity)</span></td>
+                </tr>
+            }
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">Total:</td>
+            <td>$<span id="totalamount"></span></td>
+        </tr>
+    </tfoot>
+</table>
+
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>
+
+<script language="javascript" type="text/javascript">
+    var tds = document.getElementById('purchases').getElementsByTagName('span');
+            let sum = 0.00;
+            for(var i = 0; i < tds.length; i ++) {
+                if(tds[i].className == 'count-me') {
+                    sum += isNaN(tds[i].innerHTML) ? 0 : parseFloat(tds[i].innerHTML);
+                }
+            }
+            sum = sum.toFixed(2)
+            document.getElementById("totalamount").innerHTML = sum;
+</script>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+ 
+    <link href="~/lib/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/twitter/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="bg-dark py-5">
+        <div class="container px-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xxl-6">
+                    <div class="text-center my-5">
+                        <h1 class="fw-bolder text-white">Book Report Project</h1>
+                        <p class="lead fw-normal text-muted mb-4">Made by Mitch Buhler IS 413 Section 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-1 p-1">
+
+        <div id="types" class="col-3">
+            <vc:types></vc:types>
+        </div>
+
+
+
+        <div class="col-9">
+            <div>
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

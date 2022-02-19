@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Index";
+}
+@model BooksViewModel
+
+<section class="py-5 bg-light">
+   
+                @foreach (Book b in Model.Books)
+                {
+
+
+
+                    @*<div class="col-6">
+                        <h3 class="text-center">@b.Title</h3>
+                        <ul class="list-group list-group-flush text-center">
+                            <li class="list-group-item">Author: @b.Author</li>
+                            <li class="list-group-item">Publisher: @b.Publisher</li>
+                            <li class="list-group-item">Isbn: @b.Isbn</li>
+                            <li class="list-group-item">Classification: @b.Classification</li>
+                            <li class="list-group-item">PageCount: @b.PageCount</li>
+                            <li class="list-group-item">Price: $@b.Price</li>
+                        </ul>
+                        <br />
+                    </div>*@
+
+                    <partial name="BookSummary" model="b"/>
+
+                }
+          
+      
+ 
+            <div page-model="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
+                 page-class="btn " page-class-normal="btn-outline-dark"
+                 page-class-selected="btn-primary" class="btn-group pull-right m-1">
+            </div>
+
+</section>
+
